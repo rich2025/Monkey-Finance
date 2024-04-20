@@ -9,5 +9,6 @@ Daniel Kim, Richard Yang, Edward Wang, Jianying Liu
 3. On your forked repository, click 'Code' and copy the URL.
 4. Navigate to the directory on your local machine where you want to have the project code.
 5. Clone the repository into your program editor.
-6. `cd` to the frontend folder.
+6. `cd` to the `frontend` folder.
 7. Run `npm install`, which installs all packages and dependencies needed by the frontend.
+8. Run `npm run dev` to start the local 'frontend' server.
