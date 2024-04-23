@@ -1,20 +1,21 @@
 import nltk
-from nltk.tokenize import word_tokenize
-from nltk.probability import FreqDist
-import requests
-import json
 from nltk.sentiment import SentimentIntensityAnalyzer
-from flash import Flask, jsonify
+import requests
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route("/api/stockrecommend", methods=['GET'])
 
 def stockrecommended():
     nltk.download('vader_lexicon')
-    sia = SentimentIntensityAnalyzer() #Create a SentimentIntensityAnalyzer object
+    sia = SentimentIntensityAnalyzer()  # Create a SentimentIntensityAnalyzer object
 
-    #list of stocks tracked; these have to be manually updated/changed
-    #(alternatively, we could have this as a function input)
-    list = ["Microsoft", "Apple", "Nvidia", "Amazon", "Meta",  "Tesla", "JP Morgan", "Netflix", "Home Depot", "Costco", "SalesForce"]
+    # List of stocks tracked; these have to be manually updated/changed
+    # (alternatively, we could have this as a function input)
+    companies = ["Microsoft", "Apple", "Nvidia", "Amazon", "Meta",  "Tesla", "JP Morgan", "Netflix", "Home Depot", "Costco", "SalesForce"]
     ranking = []
-    for company in list:
+    for company in companies:
         api_key = '0865f3a049a5490db951f7bbbd6e189d'
         url = 'https://newsapi.org/v2/everything'
 
@@ -31,35 +32,18 @@ def stockrecommended():
         # Assuming `articles` is your list of articles from the News API response
         total = 0
         for article in articles:
-            #print("Title:", article['title'])
-            #print("URL:", article['url'])
-
             # Analyzing the description field
-            description = article['description']
+            description = article.get('description', '')
             if description:
                 sentiment = sia.polarity_scores(description)
-                #print("Sentiment Scores:", sentiment)
-                articlesen = sentiment["compound"]
-                total += articlesen
-                #print(sentiment["compound"])
-            else:
-                print("No description available.") 
+                total += sentiment["compound"]
 
         ranking.append((total, company))
-        ranking.sort(reverse=True) 
 
+    ranking.sort(reverse=True)
 
-    #sort from highest to lowest
-    rankinglist = []
-    while ranking:
-        rankinglist.append(ranking.pop(0))
-    
+    rankinglist = [company for _, company in ranking]
+    return jsonify(rankinglist)
 
-    #print(rankinglist)
-    return rankinglist
-
-    if __name__ == "__main__":
-            app.run(debug=True, port=8080)
-
-#if True:
-#   stockrecommended()
+if __name__ == "__main__":
+    app.run(debug=True, port=8080)

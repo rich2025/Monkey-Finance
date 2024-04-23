@@ -2,6 +2,10 @@ import requests
 from datetime import date, timedelta
 from flask import Flask, jsonify
 
+app = Flask(__name__)
+
+@app.route("/api/stockmovement", methods=['GET'])
+
 def stockmovement():
     #list of stocks tracked; these have to be manually updated/changed
     #(alternatively, we could have this as a function input)
