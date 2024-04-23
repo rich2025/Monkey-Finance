@@ -18,3 +18,6 @@ Backend Python Modules:
 1. `pip install requests`
 2. `pip install nlt`
 3. `pip install Flask`
+
+Virtual Environment:
+`.\venv\Scripts\activate run`
