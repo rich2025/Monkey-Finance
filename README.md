@@ -9,5 +9,5 @@
 3. In your forked repository, click 'Code' and copy the URL.
 4. Clone the repository into your program editor.
 5. `cd` to the `frontend` folder.
-6. Run `npm install`, which installs all packages and dependencies needed by the frontend.
+6. Run `npm i`, which installs all packages and dependencies needed by the frontend.
 7. Run `npm run dev` to start the local 'frontend' server.
