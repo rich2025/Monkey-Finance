@@ -2,7 +2,7 @@
 
 #### Repository for BU CS411 Spring 2024
 ###### Daniel Kim, Richard Yang, Edward Wang, Jianying Liu
-####### Dependencies: Vite, React, Tailwind CSS
+###### Dependencies: Vite, React, Tailwind CSS
 
 **How to Run the Project Locally**
 1. Make sure that you have `Git`, `Node.js`, and `npm` installed on your local machine.
