@@ -1,8 +1,6 @@
 import requests
 from datetime import date, timedelta
 
-priceMovements = {}
-
 def stockmovement():
 #list of stocks tracked; these have to be manually updated/changed
     tickerSym = ["MSFT", "AAPL", "NVDA", "AMZN", "META", "TSLA", "JPM", "COST", "CRM", "HD", "NFLX"]
@@ -62,8 +60,5 @@ def stockmovement():
 
         dayBefore = dayBefore - timedelta(days=1)
 
+    #print(priceMovements)
     return priceMovements
-
-if True:
-    stockmovement()
-    print(priceMovements)
