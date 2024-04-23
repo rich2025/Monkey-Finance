@@ -13,3 +13,8 @@
 7. Run `npm run dev` to start the local `frontend` server.
 
 ###### Dependencies: Vite, React, Tailwind CSS, Flask
+
+Backend Python Modules:
+-pip install requests
+-pip install nltk
+-pip install Flask
