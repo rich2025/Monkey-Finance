@@ -11,13 +11,10 @@
 5. `cd` to the `frontend` folder.
 6. Run `npm i`, which installs all packages and dependencies needed by the frontend.
 7. Run `npm run dev` to start the local `frontend` server.
+8. Now, navigate to the `backend` module.
+9. Install the necessary modules by running `pipe install requests`, `pip install nltk`, and `pip install Flask`.
+10. Now, install the virtual environment by running `python -m venv <environment name>` (varies by operating system).
+11. Run `python stockrecommend.py` to start the backend server
 
-###### Dependencies: Vite, React, Tailwind CSS, Flask
-
-Backend Python Modules:
-1. `pip install requests`
-2. `pip install nlt`
-3. `pip install Flask`
-
-Virtual Environment:
-`.\venv\Scripts\activate run`
+###### Frontend Libraries and Frameworks: Vite, React, Tailwind CSS
+###### Backend Libraries and Frameworks: Flask
