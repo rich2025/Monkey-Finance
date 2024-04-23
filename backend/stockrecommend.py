@@ -4,6 +4,7 @@ from nltk.probability import FreqDist
 import requests
 import json
 from nltk.sentiment import SentimentIntensityAnalyzer
+from flash import Flask, jsonify
 
 def stockrecommended():
     nltk.download('vader_lexicon')
@@ -55,3 +56,6 @@ def stockrecommended():
     
     #print(rankinglist)
     return rankinglist
+
+    if __name__ == "__main__":
+            app.run(debug=True, port=8080)

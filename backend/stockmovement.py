@@ -1,5 +1,6 @@
 import requests
 from datetime import date, timedelta
+from flask import Flask, jsonify
 
 def stockmovement():
 #list of stocks tracked; these have to be manually updated/changed
