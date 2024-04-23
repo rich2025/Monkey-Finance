@@ -10,7 +10,8 @@ def stockrecommended():
     nltk.download('vader_lexicon')
     sia = SentimentIntensityAnalyzer() #Create a SentimentIntensityAnalyzer object
 
-    #articles of interest (needs to be updated/changed manually)
+    #list of stocks tracked; these have to be manually updated/changed
+    #(alternatively, we could have this as a function input)
     list = ["Microsoft", "Apple", "Nvidia", "Amazon", "Meta",  "Tesla", "JP Morgan", "Netflix", "Home Depot", "Costco", "SalesForce"]
     ranking = []
     for company in list:
@@ -53,9 +54,12 @@ def stockrecommended():
     while ranking:
         rankinglist.append(ranking.pop(0))
     
-    
+
     #print(rankinglist)
     return rankinglist
 
     if __name__ == "__main__":
             app.run(debug=True, port=8080)
+
+#if True:
+#   stockrecommended()
