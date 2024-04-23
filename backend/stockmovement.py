@@ -10,6 +10,10 @@ tickerSym = ["MSFT", "AAPL", "NVDA", "AMZN", "META", "TSLA", "JPM", "COST", "CRM
 #within these, store an array of size 2: [market open value, market close value]
 priceMovements = {key: {} for key in tickerSym}
 
+#adds, for every stock, a key to easily access the most recent close value
+for stock in tickerSym:
+    priceMovements[stock]["RecentClose"] = 0
+
 #collects and organizes data for each stock (daily price movements)
 for i in range(len(tickerSym)):
   tickSym = tickerSym[i]
@@ -28,6 +32,7 @@ for i in range(len(tickerSym)):
   dayBefore = currentDate #initialize to currentDate
 
   #iterate over last 30 days of data
+  recentPrice = True
   for j in range(1, 30):
       #first check whether there is data for today; if there isn't one, then find the most recent point of data
       #shouldn't take more than ~5-10 iterations
@@ -47,10 +52,13 @@ for i in range(len(tickerSym)):
       close = float(data["Time Series (Daily)"][str(dayBefore)]["4. close"])
       priceMovements[tickSym][str(dayBefore)] = [open, close]
 
+      if recentPrice:
+          priceMovements[tickSym]["Recent"] = close
+
       dayBefore = dayBefore - timedelta(days=1)
 
 
 
 
-
-  #print(data)
+#print(priceMovements)
+#print(data)
