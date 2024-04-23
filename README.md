@@ -15,6 +15,6 @@
 ###### Dependencies: Vite, React, Tailwind CSS, Flask
 
 Backend Python Modules:
--pip install requests
--pip install nltk
--pip install Flask
+1. `pip install requests`
+2. `pip install nlt`
+3. `pip install Flask`
