@@ -6,7 +6,7 @@ import json
 from nltk.sentiment import SentimentIntensityAnalyzer
 
 
-#getting articles
+#articles of interest (needs to be updated/changed manually)
 list = ["Microsoft", "Apple", "Nvidia", "Amazon", "Meta",  "Tesla", "JP Morgan", "Netflix", "Home Depot", "Costco", "SalesForce"]
 ranking = []
 for company in list:
