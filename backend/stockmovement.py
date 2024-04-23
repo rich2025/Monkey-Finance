@@ -32,22 +32,22 @@ for i in range(len(tickerSym)):
       #first check whether there is data for today; if there isn't one, then find the most recent point of data
       #shouldn't take more than ~5-10 iterations
       while True:
-          if str(currentDate) in data:
-              dayBefore = str(currentDate)
+          if str(currentDate) in data["Time Series (Daily)"]:
               break
           else:
               dayBefore = dayBefore - timedelta(days=1)
-              if str(dayBefore) in data:
-                  dayBefore = str(dayBefore)
+              if str(dayBefore) in data["Time Series (Daily)"]:
                   break
 
       #now, dayBefore holds the date of the most recent point of data (as a string)
 
       #find market open and market close values
       #add them to priceMovements dictionary
-      open = int(data["Time Series (Daily)"][dayBefore]["1. open"])
-      close = int(data["Time Series (Daily)"][dayBefore]["4. close"])
-      priceMovements[tickSym][dayBefore] = [open, close]
+      open = float(data["Time Series (Daily)"][str(dayBefore)]["1. open"])
+      close = float(data["Time Series (Daily)"][str(dayBefore)]["4. close"])
+      priceMovements[tickSym][str(dayBefore)] = [open, close]
+
+      dayBefore = dayBefore - timedelta(days=1)
 
 
 
