@@ -5,70 +5,41 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 @app.route("/api/stockmovement", methods=['GET'])
-
 def stockmovement():
-    #list of stocks tracked; these have to be manually updated/changed
-    #(alternatively, we could have this as a function input)
     tickerSym = ["MSFT", "AAPL", "NVDA", "AMZN", "META", "TSLA", "JPM", "COST", "CRM", "HD", "NFLX"]
-
-    #initialize hashtable containing keys of each ticker symbol
-    #store, within each ticker symbol key, another dictionary of the last 30 points (days) of data
-    #each of these has their dates (strings) as keys
-    #within these, store an array of size 2: [market open value, market close value]
     priceMovements = {key: {} for key in tickerSym}
 
-    #adds, for every stock, a key to easily access the most recent close value
-    for stock in tickerSym:
-        priceMovements[stock]["RecentClose"] = 0
-
-    #collects and organizes data for each stock (daily price movements)
-    for i in range(len(tickerSym)):
-        tickSym = tickerSym[i]
-
-        url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={tickerSym[0]}&apikey=KFNQIX5HY3JX8815"
-        response = requests.get(url) #for this iteration (particular company), store HTTP request data into "response" variable
+    for tickSym in tickerSym:
+        url = f"https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={tickSym}&apikey=KFNQIX5HY3JX8815"
+        response = requests.get(url)
 
         if response.status_code != 200:
             print(f"Failed to fetch data for {tickSym}")
             continue
-  
-        data = response.json() #convert data into python dictionary
+
+        data = response.json()
         time_series = data.get("Time Series (Daily)")
         if not time_series:
             print(f"No time series data found for {tickSym}")
             continue
 
-    #data (python dictionary) itself has 2 keys: "Meta Data" (ignore), and "Time Series (Daily)"
-    #"Time Series (Daily)" contains dictionaries with keys "[YYYY/MM/DD]" (date)
-    #"[YYYY/MM/DD]" (date) holds 5 keys... we only need:
-    #1.) key string "1. open" (market open)
-    #2.) key string "4. close" (market close)
+        currentDate = date.today()
+        dayBefore = currentDate
 
-    currentDate = date.today()
-    dayBefore = currentDate #initialize to currentDate
+        for j in range(30):
+            while str(dayBefore) not in time_series:
+                dayBefore = dayBefore - timedelta(days=1)
 
-    #iterate over last 30 days of data
-    for j in range(1, 30):
-        #first check whether there is data for today; if there isn't one, then find the most recent point of data
-        while str(dayBefore) not in data["Time Series (Daily)"]:
+            open_price = float(time_series[str(dayBefore)]["1. open"])
+            close_price = float(time_series[str(dayBefore)]["4. close"])
+            priceMovements[tickSym][str(dayBefore)] = [open_price, close_price]
+
+            if j == 0:
+                priceMovements[tickSym]["RecentClose"] = close_price
+
             dayBefore = dayBefore - timedelta(days=1)
 
-        #now, dayBefore holds the date of the most recent point of data (as a string)
+    return jsonify(priceMovements)
 
-        #find market open and market close values
-        #add them to priceMovements dictionary
-        open = float(data["Time Series (Daily)"][str(dayBefore)]["1. open"])
-        close = float(data["Time Series (Daily)"][str(dayBefore)]["4. close"])
-        priceMovements[tickSym][str(dayBefore)] = [open, close]
-
-        if j == 1:
-            priceMovements[tickSym]["Recent"] = close
-
-        dayBefore = dayBefore - timedelta(days=1)
-
-    #print(priceMovements)
-    return priceMovements
-
-
-#if True:
-#   stockmovement()
+if __name__ == "__main__":
+    app.run(debug=True, port=8081)
