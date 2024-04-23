@@ -1,16 +1,12 @@
 const Home = () => {
   return (
-    <div>
-      <div>
-        <h1 style={{fontSize: '90px', textAlign: 'left', marginLeft: '50px', fontFamily: 'Helvetica', color: 'yellow', filter: 'brightness(90%)'}}> <b>
-        <span style = {{color: '#DFFF00', filter: 'brightness(95%)'}}>M</span>onke<span style = {{color: 'black'}}>y</span> <span style = {{color: '#DFFF00', filter: 'brightness(100%)'}}>F</span>inanc<span style = {{color: 'black'}}>e</span>
-          
-          </b>
-          </h1>
-          </div>
-        <p>Welcome to Monkey Finance!</p>
+    <div className="w-screen h-screen bg-gradient-to-b from-yellow-300 flex justify-center items-center">
+        <h1 style={{fontSize: '80px', textAlign: 'center', fontFamily: 'Helvetica', color: 'black', filter: 'brightness(100%)', paddingBottom: '600px'}} className="font-black">
+          MONKEY FINANCE
+        </h1>
+        
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

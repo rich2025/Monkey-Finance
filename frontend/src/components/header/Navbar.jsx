@@ -29,7 +29,7 @@ export default function Example() {
   };
 
   return (
-    <Disclosure as="nav" className="bg-gray-700 py-2">
+    <Disclosure as="nav" className="bg-gradient-to-t from-gray-300 to-gray-100 py-2">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-10 sm:px-10 lg:px-10">
@@ -60,7 +60,7 @@ export default function Example() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.href === currentPath ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                          item.href === currentPath ? 'bg-gray-900 text-white' : 'text-gray-700 hover:bg-gray-700 hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.href === currentPath ? 'page' : undefined}
@@ -85,7 +85,7 @@ export default function Example() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-10 w-10 rounded-full"
-                        src="https://media.newyorker.com/photos/59095bb86552fa0be682d9d0/master/pass/Monkey-Selfie.jpg"
+                        src="https://i.pinimg.com/originals/dd/9e/d8/dd9ed836f9e55915f49fe2d662a2485e.png"
                         alt=""
                       />
                     </Menu.Button>
