@@ -2,7 +2,8 @@ import requests
 from datetime import date, timedelta
 
 def stockmovement():
-#list of stocks tracked; these have to be manually updated/changed
+    #list of stocks tracked; these have to be manually updated/changed
+    #(alternatively, we could have this as a function input)
     tickerSym = ["MSFT", "AAPL", "NVDA", "AMZN", "META", "TSLA", "JPM", "COST", "CRM", "HD", "NFLX"]
 
     #initialize hashtable containing keys of each ticker symbol
@@ -62,3 +63,7 @@ def stockmovement():
 
     #print(priceMovements)
     return priceMovements
+
+
+#if True:
+#   stockmovement()
