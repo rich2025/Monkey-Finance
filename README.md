@@ -15,7 +15,7 @@
 9. Install the necessary modules by running `pipe install requests`, `pip install nltk`, and `pip install Flask`.
 10. Now, install the virtual environment by running `python -m venv <environment name>` (varies by operating system).
 11. Run `python stockrecommend.py` to start the first backend server.
-12. In a new terminal, navigate to `backend` again and run `python stockmovement.py` to start the other backend server.
+12. In a new terminal, navigate to `backend` again and run `python stockmovement.py` in your virtual environment to start the other backend server.
 
 ###### Frontend Libraries and Frameworks: Vite, React, Tailwind CSS
 ###### Backend Libraries and Frameworks: Flask
