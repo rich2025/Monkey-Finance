@@ -3,10 +3,10 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
 const navigation = [
-  { name: 'Home', href: '/', current: false },
-  { name: 'Portfolio', href: '/portfolio', current: false },
-  { name: 'Spotlight', href: '/spotlight', current: false },
-  { name: 'About', href: '/about', current: false },
+  { name: 'HOME', href: '/', current: false },
+  { name: 'PORTFOLIO', href: '/portfolio', current: false },
+  { name: 'SPOTLIGHT', href: '/spotlight', current: false },
+  { name: 'ABOUT', href: '/about', current: false },
 ];
 
 function classNames(...classes) {
@@ -29,14 +29,14 @@ export default function Example() {
   };
 
   return (
-    <Disclosure as="nav" className="bg-gradient-to-t from-gray-300 to-gray-100 py-2">
+    <Disclosure as="nav" className="bg-yellow-300">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-10 sm:px-10 lg:px-10">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button */}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-white hover:bg-black focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -50,7 +50,6 @@ export default function Example() {
                   <img
                     className="block h-9 w-auto"
                     src="https://static.vecteezy.com/system/resources/previews/029/200/269/original/banana-transparent-background-free-png.png"
-                    alt="Your Company"
                   />
                 </div>
                 <div className="hidden sm:ml-12 sm:block">
@@ -60,7 +59,7 @@ export default function Example() {
                         key={item.name}
                         href={item.href}
                         className={classNames(
-                          item.href === currentPath ? 'bg-gray-900 text-white' : 'text-gray-700 hover:bg-gray-700 hover:text-white',
+                          item.href === currentPath ? 'bg-black text-white' : 'text-black hover:bg-black hover:text-white',
                           'rounded-md px-3 py-2 text-sm font-medium'
                         )}
                         aria-current={item.href === currentPath ? 'page' : undefined}
