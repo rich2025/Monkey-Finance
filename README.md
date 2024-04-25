@@ -11,7 +11,7 @@
 4. Clone the repository into your program editor.
 5. `cd` to the `frontend` folder.
 6. Run `npm i`, which installs all packages and dependencies needed by the frontend.
-7. Run `npm install jwt-decode` (might need to add `--force`).
+7. Run `npm install react@17 react-dom@17` and `npm install jwt-decode`.
 8. Run `npm run dev` to start the local `frontend` server.
 9. Now, navigate to the `backend` module.
 10. Install the necessary modules by running `pip install requests`, `pip install nltk`, and `pip install Flask`.
