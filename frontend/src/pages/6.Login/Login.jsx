@@ -1,7 +1,6 @@
 import React from 'react';
 import { GoogleLogin } from 'react-google-login';
 
-// Your client ID from Google Developer Console
 const clientId = "556163547173-t4d85bper0npj74uuugb5rqh1jjbbq72.apps.googleusercontent.com";
 
 const Login = () => {
@@ -14,8 +13,8 @@ const Login = () => {
   };
 
   return (
-    <div className="relative bg-gradient-to-b h-stretch w-full from-yellow-300 to-yellow-100 flex items-center justify-center">
-      <div className="px-6 pt-14 lg:px-8">
+    <div className="flex flex-col w-full min-h-screen">
+      <div className="flex-grow bg-gradient-to-b from-yellow-300 to-yellow-100 flex items-center justify-center">
         <GoogleLogin
           clientId={clientId}
           buttonText="Login with Google"
@@ -23,12 +22,10 @@ const Login = () => {
           onFailure={onFailure}
           cookiePolicy={'single_host_origin'}
           isSignedIn={true}
-          style={{ width: '200%', height: '40px' }}
+          style={{ width: '100%', height: '40px' }}
         />
       </div>
     </div>
-
-    
   );
 };
 

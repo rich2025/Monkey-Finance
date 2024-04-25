@@ -16,7 +16,7 @@ export default function Example() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 px-6 pt-14 lg:px-8">
+      <div className="relative z-10 px-6 pt-14 lg:px-8 w-screen h-screen">
 
         {/* Text */}
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56 text-center">
