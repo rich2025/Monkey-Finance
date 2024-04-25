@@ -13,15 +13,7 @@ const Footer = () => {
             <li>
                 <a href="/login" class="hover:underline me-4 md:me-6">Login</a>
             </li>
-            <li>
-                <a href="/about" class="hover:underline me-4 md:me-6">test</a>
-            </li>
-            <li>
-                <a href="/about" class="hover:underline me-4 md:me-6">test</a>
-            </li>
-            <li>
-                <a href="#" class="hover:underline">test</a>
-            </li>
+
         </ul>
     </div>
 </footer>
