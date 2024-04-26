@@ -13,7 +13,7 @@ def stockrecommended():
     
     # List of stocks tracked; these have to be manually updated/changed
     # (alternatively, we could have this as a function input)
-    companies = ["Microsoft", "Apple", "Nvidia", "Amazon", "Meta",  "Tesla", "JP Morgan", "Netflix", "Home Depot", "Costco", "SalesForce"]
+    companies = ["Microsoft", "Apple", "Nvidia", "Amazon", "Meta", "Tesla", "JP Morgan", "Netflix", "Home Depot", "Costco", "SalesForce"]
     ranking = []
     for company in companies:
         api_key = '0865f3a049a5490db951f7bbbd6e189d'
