@@ -54,7 +54,7 @@ function Login() {
       )}
       {Object.keys(user).length !== 0 && (
         <div className="p-20 mt-20 bg-white rounded-lg shadow-xl text-center">
-          <h1 className="text-2xl font-semibold text-gray-700">Welcome, {user.name}!</h1>
+          <h1 className="text-3xl font-bold text-gray-700 pb-10">Welcome, {user.name}!</h1>
           <img src={user.picture} alt="User" className="mx-auto my-4 w-24 h-24 rounded-full shadow-lg"/>
           <button 
             onClick={handleSignOut} 
