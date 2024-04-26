@@ -6,7 +6,7 @@ mongoose.connect('mongodb://localhost:27017/MonkeyFinance', {
   useUnifiedTopology: true
 });
 
-async function findOrCreateUser(email) {
+async function findOrCreateUser(email, name) {
   try {
     let user = await User.findOne({ email: email });
     if (user) {
@@ -17,6 +17,7 @@ async function findOrCreateUser(email) {
       //Default User Information
       const newUser = new User({
         email: email,
+        name: name,
         assets: []
       });
 
@@ -31,10 +32,10 @@ async function findOrCreateUser(email) {
 }
 
 // Example usage
-findOrCreateUser('john.doe@example.com').then(user => {
-  console.log('Operation successful:', user);
-}).catch(error => {
-  console.error('Operation failed:', error);
-});
+//findOrCreateUser('a2222@example.com', 'John').then(user => {
+//  console.log('Operation successful:', user);
+//}).catch(error => {
+//  console.error('Operation failed:', error);
+//});
 
 module.exports = findOrCreateUser;
