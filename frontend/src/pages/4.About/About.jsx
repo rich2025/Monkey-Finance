@@ -1,15 +1,10 @@
 const About = () => {
   return (
-    <div className="relative bg-gradient-to-b from-yellow-300">
+    <div className="flex flex-col w-full min-h-screen flex-grow bg-gradient-to-b from-yellow-300 to-yellow-100 flex items-center justify-center">
 
   
 
-    {/* Content */}
-    <div className="relative z-10 px-6 pt-14 lg:px-8">
-
-      
-
-    </div>
+    
 
   </div>
   )
