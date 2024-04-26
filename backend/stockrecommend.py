@@ -2,8 +2,10 @@ import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
 import requests
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+cors = CORS(app, origins="*")
 
 @app.route("/api/stockrecommend", methods=['GET'])
 

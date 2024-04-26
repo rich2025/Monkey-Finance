@@ -23,7 +23,7 @@ export default function Example() {
 
   const handleMenuItemClick = (path) => {
     setCurrentPath(path);
-    window.location.href = path;  // Replace or remove this if using <Link>
+    window.location.href = path; 
   };
 
   return (
