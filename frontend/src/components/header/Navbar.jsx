@@ -76,7 +76,7 @@ export default function Example() {
                     <Link to="/login" className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="h-10 w-10 rounded-full"
+                        className="h-10 w-12 rounded-full"
                         src="https://i.pinimg.com/originals/dd/9e/d8/dd9ed836f9e55915f49fe2d662a2485e.png"
                         alt=""
                       />
