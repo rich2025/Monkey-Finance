@@ -2,8 +2,10 @@ import requests
 from datetime import date, timedelta
 from flask import Flask, jsonify
 
+#creates instance of a Flask class, represents our web app and central obj for managing
 app = Flask(__name__)
 
+# decorator that is built to handle a HTTP GET request if the incoming request url matches /api/stockmovement endpoint
 @app.route("/api/stockmovement", methods=['GET'])
 def stockmovement():
     tickerSym = ["MSFT", "AAPL", "NVDA", "AMZN", "META", "TSLA", "JPM", "COST", "CRM", "HD", "NFLX"]
@@ -41,5 +43,8 @@ def stockmovement():
 
     return jsonify(priceMovements)
 
+#condition checks if the script is run as a main program and not imported as a module 
+# will only run is script is executed directly  
 if __name__ == "__main__":
+    # starts flask application and start listening to oncoming requests, will listen from port 8081
     app.run(debug=True, port=8081)
