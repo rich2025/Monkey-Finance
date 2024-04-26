@@ -63,7 +63,7 @@ const Portfolio = () => {
   if (!isLoggedIn) {
     return (
       <div className="flex justify-center items-center w-full min-h-screen bg-gradient-to-b from-yellow-300 to-yellow-100">
-      <div className="flex w-full max-w-6xl text-4xl text- font-bold justify-center items-center pb-20">
+      <div className="flex w-full max-w-6xl text-5xl text- font-extrabold justify-center items-center pb-20 text-gray-800">
         <h1>Access Denied. Please <a href="/login" className="text-blue-600 hover:text-blue-800">log in</a> to view this page.</h1>
       </div>
       </div>
