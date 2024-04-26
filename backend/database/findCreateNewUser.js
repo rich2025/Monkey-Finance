@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const User = require('./userSchema'); // Assuming userSchema.js is in the same directory
+const User = require('./UserSchema'); // Assuming userSchema.js is in the same directory
 
 mongoose.connect('mongodb://localhost:27017/MonkeyFinance', {
   useNewUrlParser: true,
