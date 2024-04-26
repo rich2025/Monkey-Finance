@@ -48,7 +48,7 @@ function Login() {
       <div id="signInDiv" style={{ transform: 'scale(1.5)' }}></div>
       {Object.keys(user).length === 0 && (
         <div className="p-12 mt-4 bg-white rounded-lg shadow-xl">
-          <p className="text-2xl font-bold text-gray-700 mb-4">Please login to view your portfolio.</p>
+          <p className="text-3xl font-bold text-gray-800 mb-4">Please login to view your portfolio.</p>
           <div id="signInDiv"></div>  {/* Ensure this div is for positioning/style or remove if unnecessary */}
         </div>
       )}
