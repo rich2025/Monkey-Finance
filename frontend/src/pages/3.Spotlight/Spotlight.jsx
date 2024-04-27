@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const About = () => {
+const Spotlight = () => {
   const [array, setArray] = useState([]);
 
   const fetchAPI = async () => {
@@ -13,6 +13,29 @@ const About = () => {
   useEffect(() => {
     fetchAPI();
   }, []);
+
+  const isLoggedIn = localStorage.getItem('user');
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      console.log('No user found, access denied.');
+      return;
+    }
+    fetchAPI();
+    const intervalId = setInterval(fetchAPI, 3600000); // Refresh data every hour
+
+    return () => clearInterval(intervalId);
+  }, [isLoggedIn]);
+
+  if (!isLoggedIn) {
+    return (
+      <div className="flex justify-center items-center w-full min-h-screen bg-gradient-to-b from-yellow-300 to-yellow-100">
+        <div className="flex w-full max-w-6xl text-5xl font-extrabold justify-center items-center pb-20 text-gray-800">
+          <h1>Access Denied. Please <a href="/login" className="text-blue-600 hover:text-blue-800">log in</a> to view this page.</h1>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex justify-center items-center w-full min-h-screen bg-gradient-to-b from-yellow-300 to-yellow-100">
@@ -34,9 +57,6 @@ const About = () => {
           </tbody>
         </table>
         <div className="flex-auto bg-gray-100 ml-4 p-4 flex flex-col items-end">
-         
-        {/* <img src="https://i.ibb.co/nMgspdw/istockphoto-1202029759-612x612-Photoroom-png-Photoroom.png" alt="Descriptive Image Text" className="w-100 h-20 -mt-10" /> */}
-
           <div className="w-full">
             <p className="text-5xl font-extrabold text-gray-800">Monkey Market Movers</p>
             <p className="text-3xl font-semibold pt-12 text-gray-800">Below is a curated list of 11 stocks, ranked by sentiment derived from analyzing 20 news articles per stock.</p>
@@ -50,4 +70,4 @@ const About = () => {
   );
 }
 
-export default About;
+export default Spotlight;
