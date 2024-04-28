@@ -96,17 +96,29 @@ const Portfolio = () => {
               <th className="py-3 px-4 text-left">Action</th>
             </tr>
           </thead>
+        
           <tbody className="text-blue-gray-900">
-            {Object.entries(stockMovements).map(([symbol, details], index) => (
-              <tr key={index} className="border-b border-blue-gray-200">
-                <td className="py-3 px-4">{symbol}</td>
-                <td className="py-3 px-4">${details.RecentClose.toFixed(2)}</td>
-                <td className="py-3 px-4">
-                  <a href="#" className="font-medium text-blue-600 hover:text-blue-800">Edit</a>
+            {Object.entries(stockMovements).length > 0 ? (
+              Object.entries(stockMovements).map(([symbol, details], index) => (
+                <tr key={index} className="border-b border-blue-gray-200">
+                  <td className="py-3 px-4">{symbol}</td>
+                  <td className="py-3 px-4">
+                    ${details && details.RecentClose ? details.RecentClose.toFixed(2) : 'N/A'}
+                  </td>
+                  <td className="py-3 px-4">
+                    <a href="#" className="font-medium text-blue-600 hover:text-blue-800">Edit</a>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="3" className="py-3 px-4 text-center">
+                  No stock data available.
                 </td>
               </tr>
-            ))}
+            )}
           </tbody>
+
         </table>
       </div>
       <div className="w-full max-w-md pt-5 px-4 mb-8">

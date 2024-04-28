@@ -25,6 +25,7 @@ def stockmovement():
         time_series = data.get("Time Series (Daily)")
         if not time_series:
             print(f"No time series data found for {tickSym}")
+            priceMovements[tickSym] = {"RecentClose": None}
             continue
 
         currentDate = date.today()
