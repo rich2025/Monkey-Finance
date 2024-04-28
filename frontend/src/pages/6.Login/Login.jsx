@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode'; // Ensure this is the correct import statement based on library export
+import axios from 'axios';
 
 function Login() {
   const [user, setUser] = useState(() => {
@@ -15,23 +16,17 @@ function Login() {
     localStorage.setItem("user", JSON.stringify(userObject));
     document.getElementById("signInDiv").hidden = true;
 
-    console.log(userObject.email)
-
-    //send email to backend
-    //fetch('/api/user', {
-    //  method: 'POST',
-    //  headers: {
-    //    'Content-Type': 'application/json',
-    //  },
-    //  body: JSON.stringify({ email: userObject.email }),
-    //})
-    //.then(response => response.json())
-    //.then(data => {
-    //  console.log('Success:', data);
-    //})
-    //.catch((error) => {
-    //  console.error('Error:', error);
-    //});
+    // Call backend API to check/create user
+    axios.post("http://localhost:5000/api/findCreateNewUser", {
+      email: userObject.email,
+      name: userObject.name // Make sure these fields match what Google provides
+    }).then(res => {
+      setUser(res.data);
+      localStorage.setItem("user", JSON.stringify(res.data));
+      document.getElementById("signInDiv").hidden = true;
+    }).catch(error => {
+      console.error('Failed to log in:', error);
+    });
   }
 
   function handleSignOut(event) {
