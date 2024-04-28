@@ -17,6 +17,7 @@ const Portfolio = () => {
 
   const [stockMovements, setStockMovements] = useState([]);
 
+  // Check user login status directly from localStorage
   const isLoggedIn = localStorage.getItem('user');
 
   const fetchData = async () => {
@@ -27,10 +28,6 @@ const Portfolio = () => {
     try {
       const response = await fetch(URL);
       const data = await response.json();
-      if (data['Note']) {
-        // This assumes API has returned a note, often used for indicating limit is reached
-        throw new Error(data['Note']);
-      }
       const timeSeries = data['Time Series (5min)'];
       const labels = [];
       const stockPrices = [];
@@ -52,16 +49,6 @@ const Portfolio = () => {
       });
     } catch (error) {
       console.error('Failed to fetch data:', error);
-      setChartData({
-        labels: [],
-        datasets: [{
-          label: 'AAPL Stock Price',
-          data: [],
-          fill: false,
-          borderColor: 'rgb(75, 192, 192)',
-          tension: 0.1
-        }]
-      }); // Reset chart data
     }
   };
 
@@ -81,7 +68,6 @@ const Portfolio = () => {
       setStockMovements(response.data);
     } catch (error) {
       console.error('Failed to fetch stock movements:', error);
-      setStockMovements([]); // Reset stock movements
     }
   };
 
@@ -111,9 +97,9 @@ const Portfolio = () => {
             </tr>
           </thead>
           <tbody className="text-blue-gray-900">
-            {stockMovements.map((details, index) => (
+            {Object.entries(stockMovements).map(([symbol, details], index) => (
               <tr key={index} className="border-b border-blue-gray-200">
-                <td className="py-3 px-4">{details.symbol}</td>
+                <td className="py-3 px-4">{symbol}</td>
                 <td className="py-3 px-4">${details.RecentClose.toFixed(2)}</td>
                 <td className="py-3 px-4">
                   <a href="#" className="font-medium text-blue-600 hover:text-blue-800">Edit</a>
@@ -129,5 +115,4 @@ const Portfolio = () => {
     </div>
   );
 };
-
 export default Portfolio;
