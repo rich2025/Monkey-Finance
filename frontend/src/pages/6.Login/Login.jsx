@@ -17,7 +17,7 @@ function Login() {
     document.getElementById("signInDiv").hidden = true;
 
     // Call backend API to check/create user
-    axios.post("http://localhost:5000/api/findCreateNewUser", {
+    axios.post("http://localhost:7000/api/findCreateNewUser", {
       email: userObject.email,
       name: userObject.name // Make sure these fields match what Google provides
     }).then(res => {
