@@ -15,7 +15,7 @@
 8. Run `npm run dev` to start the local `frontend` server.
 9. Now, navigate to the `backend` module.
 10. Install the necessary modules by running `pip install requests`, `pip install nltk`, `pip install Flask-CORS`, and `pip install Flask`.
-11. Now, install the virtual environment by running `python -m venv <environment name>`.
+11. Now, install the virtual environment by running `python -m venv <environment name>` and `venv\Scripts\activate`.
 12. Run `python stockrecommend.py` to start the first backend server.
 13. In a new terminal, navigate to `backend` again and run `python stockmovement.py` in your virtual environment to start the other backend server.
 14. To start the database, install MongoDB Compass and connect to `mongodb://localhost:27017`
