@@ -35,7 +35,7 @@ const About = () => {
             Join Monkey Finance today and take control of your financial future!
           </p>
       
-          <p className="text-sm text-gray-700">
+          <p className="text-sm text-gray-700 pt-8">
             CS411 Spring 2024: Richard Yang, Daniel Kim, Edward Wang, Jianying Liu
           </p>
         </div>
