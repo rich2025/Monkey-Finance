@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 
 const navigation = [
   { name: 'HOME', href: '/', current: false },
-  { name: 'PORTFOLIO', href: '/portfolio', current: false },
+  { name: 'TRENDS', href: '/trends', current: false },
   { name: 'SPOTLIGHT', href: '/spotlight', current: false },
   { name: 'ABOUT', href: '/about', current: false },
 ];

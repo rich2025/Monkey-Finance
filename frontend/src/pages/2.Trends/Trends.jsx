@@ -1,66 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Line } from 'react-chartjs-2';
-import 'chart.js/auto';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-const Portfolio = () => {
-  const [chartData, setChartData] = useState({
-    labels: [],
-    datasets: [{
-      label: 'AAPL Stock Price',
-      data: [],
-      fill: false,
-      borderColor: 'rgb(75, 192, 192)',
-      tension: 0.1
-    }]
-  });
-
+const Trends = () => {
   const [stockMovements, setStockMovements] = useState([]);
 
   // Check user login status directly from localStorage
   const isLoggedIn = localStorage.getItem('user');
-
-  const fetchData = async () => {
-    const API_KEY = 'FF4KQM71L6X80J6O';
-    const SYMBOL = 'AAPL';
-    const URL = `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${SYMBOL}&interval=5min&apikey=${API_KEY}`;
-
-    try {
-      const response = await fetch(URL);
-      const data = await response.json();
-      const timeSeries = data['Time Series (5min)'];
-      const labels = [];
-      const stockPrices = [];
-
-      for (let key in timeSeries) {
-        labels.push(key);
-        stockPrices.push(timeSeries[key]['4. close']);
-      }
-
-      setChartData({
-        labels: labels.reverse(),
-        datasets: [{
-          label: 'AAPL Stock Price',
-          data: stockPrices.reverse(),
-          fill: false,
-          borderColor: 'rgb(75, 192, 192)',
-          tension: 0.1
-        }]
-      });
-    } catch (error) {
-      console.error('Failed to fetch data:', error);
-    }
-  };
-
-  useEffect(() => {
-    if (!isLoggedIn) {
-      console.log('No user found, access denied.');
-      return;
-    }
-    fetchData();
-    const intervalId = setInterval(fetchData, 3600000); // Refresh data every hour
-    return () => clearInterval(intervalId);
-  }, [isLoggedIn]);
 
   const fetchAPI = async () => {
     try {
@@ -93,7 +39,7 @@ const Portfolio = () => {
             <tr className="bg-blue-gray-100 text-gray-700">
               <th className="py-3 px-4 text-left">Ticker Symbol</th>
               <th className="py-3 px-4 text-left">Recent Close Price</th>
-              <th className="py-3 px-4 text-left">Action</th>
+              <th className="py-3 px-4 text-left">Graph</th>
             </tr>
           </thead>
         
@@ -106,7 +52,9 @@ const Portfolio = () => {
                     ${details && details.RecentClose ? details.RecentClose.toFixed(2) : 'N/A'}
                   </td>
                   <td className="py-3 px-4">
-                    <a href="#" className="font-medium text-blue-600 hover:text-blue-800">Edit</a>
+                    <Link to={`/graph/${symbol}`} className="font-medium text-blue-600 hover:text-blue-800">
+                      View
+                    </Link>
                   </td>
                 </tr>
               ))
@@ -118,13 +66,10 @@ const Portfolio = () => {
               </tr>
             )}
           </tbody>
-
         </table>
-      </div>
-      <div className="w-full max-w-md pt-5 px-4 mb-8">
-        <Line data={chartData} />
       </div>
     </div>
   );
 };
-export default Portfolio;
+
+export default Trends;
