@@ -12,7 +12,7 @@ def stockrecommended():
     nltk.download('vader_lexicon')
     sia = SentimentIntensityAnalyzer()  # Create a SentimentIntensityAnalyzer object
     
-    companies = ["Microsoft", "Apple", "Nvidia", "Amazon", "Meta", "Tesla", "JP Morgan", "Netflix", "Home Depot", "Costco", "SalesForce"]
+    companies = ["Microsoft", "Apple", "Nvidia", "Amazon", "Meta", "Tesla", "JP Morgan", "Netflix", "Home Depot", "Costco"]
     ranking = []
     for company in companies:
         api_key = '0865f3a049a5490db951f7bbbd6e189d'

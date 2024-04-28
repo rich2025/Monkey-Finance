@@ -59,7 +59,7 @@ const Spotlight = () => {
         <div className="flex-auto bg-gray-100 ml-4 p-4 flex flex-col items-end">
           <div className="w-full">
             <p className="text-5xl font-extrabold text-gray-800">Monkey Market Movers</p>
-            <p className="text-3xl font-semibold pt-12 text-gray-800">Below is a curated list of 11 stocks, ranked by sentiment derived from analyzing 20 news articles per stock.</p>
+            <p className="text-3xl font-semibold pt-12 text-gray-800">Here is a curated list of 10 stocks, ranked by sentiment derived from analyzing 20 news articles per stock.</p>
             <p className="text-3xl font-semibold pt-12 text-gray-800">Sentiment analysis gauges the overall market sentiment toward each stock, providing insights into perceived value.</p>
             <p className="text-3xl font-semibold pt-12 text-gray-800">Higher sentiment scores indicate greater value attributed by the market.</p>
             <p className="text-3xl font-semibold pt-12 text-gray-800">A sentiment score of zero denotes a neutral stance.</p>

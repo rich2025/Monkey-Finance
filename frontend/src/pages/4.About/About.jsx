@@ -36,7 +36,7 @@ const About = () => {
           </p>
       
           <p className="text-sm text-gray-700">
-            CS411 Spring 2024: Richard Yang, Daniel Kim, Edward Wang, Jian Ying Liu
+            CS411 Spring 2024: Richard Yang, Daniel Kim, Edward Wang, Jianying Liu
           </p>
         </div>
       </div>

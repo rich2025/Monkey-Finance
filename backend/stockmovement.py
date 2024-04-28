@@ -8,7 +8,7 @@ app = Flask(__name__)
 # decorator that is built to handle a HTTP GET request if the incoming request url matches /api/stockmovement endpoint
 @app.route("/api/stockmovement", methods=['GET'])
 def stockmovement():
-    tickerSym = ["MSFT", "AAPL", "NVDA", "AMZN", "META", "TSLA", "JPM", "COST", "CRM", "HD", "NFLX"]
+    tickerSym = ["MSFT", "AAPL", "NVDA", "AMZN", "META", "TSLA", "JPM", "COST", "HD", "NFLX"]
     priceMovements = {key: {} for key in tickerSym}
 
     for tickSym in tickerSym:
