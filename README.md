@@ -18,6 +18,9 @@
 11. Now, install the virtual environment by running `python -m venv <environment name>`.
 12. Run `python stockrecommend.py` to start the first backend server.
 13. In a new terminal, navigate to `backend` again and run `python stockmovement.py` in your virtual environment to start the other backend server.
+14. To start the database, install MongoDB Compass and connect to `mongodb://localhost:27017`
+15. Next, install the pymongo module (`pip install pymongo`)
+16. In the backend directory, run `python findAddNewUser.py`
 
 ###### Frontend Libraries and Frameworks: Vite, React, Tailwind CSS
 ###### Backend Libraries and Frameworks: Flask
