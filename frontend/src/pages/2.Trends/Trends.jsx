@@ -36,7 +36,7 @@ const Trends = () => {
       <div className="overflow-x-auto">
         <table className="min-w-full bg-white shadow-md rounded-xl">
           <thead>
-            <tr className="bg-blue-gray-100 text-gray-700">
+            <tr className="bg-blue-gray-100 text-gray-700 text-2xl">
               <th className="py-3 px-4 text-left">Ticker Symbol</th>
               <th className="py-3 px-4 text-left">Recent Close Price</th>
               <th className="py-3 px-4 text-left">Graph</th>
