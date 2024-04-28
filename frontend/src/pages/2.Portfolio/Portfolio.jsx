@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
+import axios from 'axios';
 
 const Portfolio = () => {
   const [chartData, setChartData] = useState({
@@ -71,6 +72,16 @@ const Portfolio = () => {
         
     );
   }
+
+
+  const fetchAPI = async () => {
+    const response = await axios.get("http://localhost:8081/api/stockmovement");
+    console.log(response.data);
+  };
+
+  useEffect(() => {
+    fetchAPI();
+  }, []);
 
   return (
     <div class="flex min-h-screen items-center justify-center relative bg-gradient-to-b from-yellow-300 p-5">
