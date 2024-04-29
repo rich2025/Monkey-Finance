@@ -22,5 +22,5 @@
 15. Next, install the pymongo module (`pip install pymongo`)
 16. In the backend directory, run `python findAddNewUser.py`
 
-###### Frontend Libraries and Frameworks: Vite, React, Tailwind CSS
-###### Backend Libraries and Frameworks: Flask
+###### Primary Frontend Libraries and Frameworks: Vite, React, Tailwind CSS
+###### Primary Backend Libraries and Frameworks: Flask, Mongo
