@@ -2,7 +2,6 @@
 
 #### Repository for BU CS411 Spring 2024
 ###### Daniel Kim, Richard Yang, Edward Wang, Jianying Liu
-![image](https://github.com/rich2025/411project/assets/156924821/5565160c-1057-4101-973c-1b52458214af)
 
 **How to Run the Project Locally**
 1. Make sure that you have `Git`, `Node.js`, `Python`, and `npm` installed on your local machine.
