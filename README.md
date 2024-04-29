@@ -1,4 +1,4 @@
-# Monkey Finance - Investment Tracker
+# Monkey Finance
 
 #### Repository for BU CS411 Spring 2024
 ###### Daniel Kim, Richard Yang, Edward Wang, Jianying Liu
