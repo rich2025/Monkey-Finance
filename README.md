@@ -3,6 +3,8 @@
 #### Repository for BU CS411 Spring 2024
 ###### Daniel Kim, Richard Yang, Edward Wang, Jianying Liu
 
+<img width="1440" alt="Screen Shot 2024-04-29 at 1 11 01 PM" src="https://github.com/rich2025/Monkey-Finance/assets/156924821/fb479b33-f914-431a-9446-289a2f1c4e73">
+
 **How to Run the Project Locally**
 1. Make sure that you have `Git`, `Node.js`, `Python`, and `npm` installed on your local machine.
 2. Fork this repository to your personal GitHub account.
