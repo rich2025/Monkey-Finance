@@ -27,8 +27,10 @@
 ###### Primary Frontend Libraries and Frameworks: Vite, React, Tailwind CSS
 ###### Primary Backend Libraries and Frameworks: Flask, Mongo
 
+## Screenshots
+![5](https://github.com/rich2025/Monkey-Finance/assets/156924821/afe2d234-626c-42cd-87fb-ad4a881f4afe)
+![7](https://github.com/rich2025/Monkey-Finance/assets/156924821/84117c27-9e1f-4965-941f-a4ac8ff187f3)
 ![1](https://github.com/rich2025/Monkey-Finance/assets/156924821/24e00e67-ba56-4d80-85ff-78b4b7dff6a9)
 ![2](https://github.com/rich2025/Monkey-Finance/assets/156924821/5ba71300-eca5-4b9a-8ada-46ff1a4c1f4a)
 ![3](https://github.com/rich2025/Monkey-Finance/assets/156924821/6041ebe9-d8f4-4125-a6a4-1063a21eee20)
-![5](https://github.com/rich2025/Monkey-Finance/assets/156924821/afe2d234-626c-42cd-87fb-ad4a881f4afe)
-![7](https://github.com/rich2025/Monkey-Finance/assets/156924821/84117c27-9e1f-4965-941f-a4ac8ff187f3)
+
