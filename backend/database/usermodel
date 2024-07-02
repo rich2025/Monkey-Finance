@@ -1,0 +1,9 @@
+const newUser = new User({
+  username: 'john_doe',
+  email: 'john.doe@example.com',
+  password: 'hashed_password_here',
+});
+
+newUser.save()
+  .then(() => console.log('User created successfully'))
+  .catch((err) => console.error('Error creating user:', err));
