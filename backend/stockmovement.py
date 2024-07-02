@@ -1,14 +1,16 @@
 import requests
 from datetime import date, timedelta
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 #creates instance of a Flask class, represents our web app and central obj for managing
 app = Flask(__name__)
+cors = CORS(app, origins="*")
 
 # decorator that is built to handle a HTTP GET request if the incoming request url matches /api/stockmovement endpoint
 @app.route("/api/stockmovement", methods=['GET'])
 def stockmovement():
-    tickerSym = ["MSFT", "AAPL", "NVDA", "AMZN", "META", "TSLA", "JPM", "COST", "CRM", "HD", "NFLX"]
+    tickerSym = ["MSFT", "AAPL", "NVDA", "AMZN", "META", "TSLA", "JPM", "COST", "HD", "NFLX"]
     priceMovements = {key: {} for key in tickerSym}
 
     for tickSym in tickerSym:
@@ -23,6 +25,7 @@ def stockmovement():
         time_series = data.get("Time Series (Daily)")
         if not time_series:
             print(f"No time series data found for {tickSym}")
+            priceMovements[tickSym] = {"RecentClose": None}
             continue
 
         currentDate = date.today()
@@ -40,7 +43,7 @@ def stockmovement():
                 priceMovements[tickSym]["RecentClose"] = close_price
 
             dayBefore = dayBefore - timedelta(days=1)
-
+    
     return jsonify(priceMovements)
 
 #condition checks if the script is run as a main program and not imported as a module 

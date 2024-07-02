@@ -2,18 +2,17 @@ import nltk
 from nltk.sentiment import SentimentIntensityAnalyzer
 import requests
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+cors = CORS(app, origins="*")
 
 @app.route("/api/stockrecommend", methods=['GET'])
-
 def stockrecommended():
     nltk.download('vader_lexicon')
     sia = SentimentIntensityAnalyzer()  # Create a SentimentIntensityAnalyzer object
     
-    # List of stocks tracked; these have to be manually updated/changed
-    # (alternatively, we could have this as a function input)
-    companies = ["Microsoft", "Apple", "Nvidia", "Amazon", "Meta",  "Tesla", "JP Morgan", "Netflix", "Home Depot", "Costco", "SalesForce"]
+    companies = ["Microsoft", "Apple", "Nvidia", "Amazon", "Meta", "Tesla", "JP Morgan", "Netflix", "Home Depot", "Costco"]
     ranking = []
     for company in companies:
         api_key = '0865f3a049a5490db951f7bbbd6e189d'
@@ -29,20 +28,18 @@ def stockrecommended():
         data = response.json()  # The response data
         articles = data['articles']
 
-        # Assuming `articles` is your list of articles from the News API response
         total = 0
         for article in articles:
-            # Analyzing the description field
             description = article.get('description', '')
             if description:
                 sentiment = sia.polarity_scores(description)
                 total += sentiment["compound"]
 
-        ranking.append((total, company))
+        ranking.append((company, total))  # Change to store company name and sentiment
 
-    ranking.sort(reverse=True)
+    ranking.sort(key=lambda x: x[1], reverse=True)  # Sort by sentiment score
 
-    rankinglist = [company for _, company in ranking]
+    rankinglist = [{"company": company, "sentiment": score} for company, score in ranking]  # Prepare list with sentiment scores
     return jsonify(rankinglist)
 
 if __name__ == "__main__":
